@@ -61,7 +61,7 @@ public class SettingsConfig implements ApplicationContextAware {
 
 	private Properties loadLocalProperties() throws IOException {
 		Properties result = new Properties();
-		for (String propertiesPath : Arrays.asList("/com/knowledgevision/settings/rentagencyweb.properties")) {
+		for (String propertiesPath : Arrays.asList("/com/balkovskyy/rentagency/config/rentagencyweb.properties")) {
 			result.putAll(loadLocalProperties(propertiesPath));
 		}
 		return result;

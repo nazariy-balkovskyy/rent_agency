@@ -3,6 +3,7 @@ import javax.sql.DataSource;
 
 
 
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,31 +13,31 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MySQLDatabaseConfigRentAgency {
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.url}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.url}")
 	private String dbUrl;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.user}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.user}")
 	private String dbUser;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.password}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.password}")
 	private String dbPassword;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.driver}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.driver}")
 	private String dbDriverName;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.initialSize}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.initialSize}")
 	private int initialSize;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.validationQuery}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.validationQuery}")
 	private String validationQuery;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.testWhileIdle}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.testWhileIdle}")
 	private boolean testWhileIdle;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.timeBetweenEvictionRunsMillis}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.timeBetweenEvictionRunsMillis}")
 	private int timeBetweenEvictionRunsMillis;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.db.minEvictableIdleTimeMillis}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.db.minEvictableIdleTimeMillis}")
 	private int minEvictableIdleTimeMillis;
 
 	@Bean

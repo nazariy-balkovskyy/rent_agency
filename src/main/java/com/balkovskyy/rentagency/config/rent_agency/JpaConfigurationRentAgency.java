@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -25,14 +27,16 @@ import org.springframework.transaction.PlatformTransactionManager;
 		transactionManagerRef="transactionManagerRentAgency",
 		basePackages = {
 				"com.balkovskyy.rentagency.web.repositories"})
-@ComponentScan({"com.balkovskyy.rentagency.web.config.rent_agency"})
+@ComponentScan({"com.balkovskyy.rentagency.config.rent_agency"})
+@Import({ MySQLDatabaseConfigRentAgency.class })
+@ImportResource("META-INF/persistence.xml")
 public class JpaConfigurationRentAgency {
 
 	@Autowired
 	@Qualifier("rentAgencyDataSource")
 	private DataSource dataSource;
 
-	@Value("${com.balkovskyy.rentagency.config.rent_agency.hibernate.dialect}")
+	@Value("${com.balkovskyy.rentagency.web.config.rent_agency.hibernate.dialect}")
 	private String hibernateDialect;
 
 	@Bean
