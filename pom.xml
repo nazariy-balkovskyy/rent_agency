@@ -14,7 +14,7 @@
         <spring.core.version>4.0.5.RELEASE</spring.core.version>
         <spring.data.version>1.6.0.RELEASE</spring.data.version>
         <spring.aop.version>4.0.5.RELEASE</spring.aop.version>
-        <spring.security.version>3.2.4.RELEASE</spring.security.version>
+        <spring.security.version>3.1.4.RELEASE</spring.security.version>
         <spring.security.config.version>4.0.5.RELEASE</spring.security.config.version>
 
         <javax.servlet.version>2.5</javax.servlet.version>
@@ -131,12 +131,6 @@
 	             <artifactId>spring-security-web</artifactId>
 	             <version>${spring.security.version}</version>
 	         </dependency>
-	         
-	         <dependency>
-		        <groupId>org.springframework.security</groupId>
-		        <artifactId>spring-security-config</artifactId>
-		        <version>${spring.security.version}</version>
-		    </dependency>
 		    
 	         <dependency>
 	             <groupId>org.springframework.security</groupId>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.balkovskyy.rentagency.web.repositories.LocationRepository;
 
 @Service
-public class LocationServiceImpl {
+public class LocationServiceImpl implements LocationService{
 	
 	@Autowired
 	private LocationRepository locationRepo;
