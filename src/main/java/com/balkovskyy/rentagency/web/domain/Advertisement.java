@@ -1,14 +1,19 @@
 package com.balkovskyy.rentagency.web.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -31,22 +36,28 @@ public class Advertisement implements Serializable, Identifiable<Long>{
 	
 	@ManyToOne
 	@JoinColumn(name = "id_flat_type", insertable = false, updatable = false)
-	private FlatType type;
+	private FlatType flatType;
 	
-	@Column(name = "id_state")
-	private Long stateId;
+	@ManyToOne
+	@JoinColumn(name = "id_state", insertable = false, updatable = false)
+	private AdvertisementState state;
 	
-	@Column(name = "id_location")
-	private Long locationId;
+	@ManyToOne
+	@JoinColumn(name = "id_location", insertable = false, updatable = false)
+	private Location location;
 	
-	@Column(name = "id_rent_type")
-	private Long rentTypeId;
+	@ManyToOne
+	@JoinColumn(name = "id_rent_type", insertable = false, updatable = false)
+	private RentType rentType;
 	
 	@Column(name = "price")
 	private double price;
 	
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "description")
+	private String description;
 	
 	@Column(name = "views_count")
 	private int viewsCount;
@@ -57,7 +68,102 @@ public class Advertisement implements Serializable, Identifiable<Long>{
 	@Column(name = "floor_number")
 	private int floorNumber;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "advertisement", cascade = CascadeType.ALL)
+	private List<Photo> photoes = new ArrayList<Photo>();
+	
 	public Long getId(){
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public FlatType getFlatType() {
+		return flatType;
+	}
+
+	public void setFlatType(FlatType flatType) {
+		this.flatType = flatType;
+	}
+
+	public AdvertisementState getState() {
+		return state;
+	}
+
+	public void setState(AdvertisementState state) {
+		this.state = state;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public RentType getRentType() {
+		return rentType;
+	}
+
+	public void setRentType(RentType rentType) {
+		this.rentType = rentType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getViewsCount() {
+		return viewsCount;
+	}
+
+	public void setViewsCount(int viewsCount) {
+		this.viewsCount = viewsCount;
+	}
+
+	public int getRoomsCount() {
+		return roomsCount;
+	}
+
+	public void setRoomsCount(int roomsCount) {
+		this.roomsCount = roomsCount;
+	}
+
+	public int getFloorNumber() {
+		return floorNumber;
+	}
+
+	public void setFloorNumber(int floorNumber) {
+		this.floorNumber = floorNumber;
 	}
 }

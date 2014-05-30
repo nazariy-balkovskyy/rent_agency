@@ -13,6 +13,8 @@
             	<class>com.balkovskyy.rentagency.web.domain.Region</class>
             	<class>com.balkovskyy.rentagency.web.domain.Photo</class>
             	<class>com.balkovskyy.rentagency.web.domain.FlatType</class>
+            	<class>com.balkovskyy.rentagency.web.domain.AdvertisementState</class>
+            	<class>com.balkovskyy.rentagency.web.domain.RentType</class>
             	<exclude-unlisted-classes>true</exclude-unlisted-classes>
             </persistence-unit>
 </persistence>
