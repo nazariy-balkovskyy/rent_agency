@@ -10,7 +10,7 @@ public class AdvertisementDTO {
 	private Long id;
 	
 	@JsonProperty("user")
-	private UserDTO use;
+	private UserDTO user;
 	
 	@JsonProperty("flat_type")
 	private FlatTypeDTO flatType;
@@ -28,7 +28,7 @@ public class AdvertisementDTO {
 	private double price;
 	
 	@JsonProperty("name")
-	private double name;
+	private String name;
 	
 	@JsonProperty("description")
 	private String description;
@@ -50,12 +50,12 @@ public class AdvertisementDTO {
 		this.id = id;
 	}
 
-	public UserDTO getUse() {
-		return use;
+	public UserDTO getUser() {
+		return user;
 	}
 
-	public void setUse(UserDTO use) {
-		this.use = use;
+	public void setUser(UserDTO user) {
+		this.user = user;
 	}
 
 	public FlatTypeDTO getFlatType() {
@@ -98,11 +98,11 @@ public class AdvertisementDTO {
 		this.price = price;
 	}
 
-	public double getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(double name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
