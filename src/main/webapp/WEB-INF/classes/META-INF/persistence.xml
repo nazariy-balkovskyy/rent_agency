@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+            <persistence-unit name="rent_agency" transaction-type="RESOURCE_LOCAL">
+            	<class>com.balkovskyy.rentagency.web.domain.User</class>
+            	<class>com.balkovskyy.rentagency.web.domain.Comment</class> 
+            	<class>com.balkovskyy.rentagency.web.domain.Mark</class>
+            	<class>com.balkovskyy.rentagency.web.domain.Advertisement</class>
+            	<class>com.balkovskyy.rentagency.web.domain.Location</class>
+            	<class>com.balkovskyy.rentagency.web.domain.City</class>
+            	<class>com.balkovskyy.rentagency.web.domain.Region</class>
+            	<class>com.balkovskyy.rentagency.web.domain.Photo</class>
+            	<class>com.balkovskyy.rentagency.web.domain.FlatType</class>
+            	<exclude-unlisted-classes>true</exclude-unlisted-classes>
+            </persistence-unit>
+</persistence>

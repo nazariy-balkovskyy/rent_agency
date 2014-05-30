@@ -1,5 +1,8 @@
 package com.balkovskyy.rentagency.web.dto.builders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.balkovskyy.rentagency.web.domain.User;
 import com.balkovskyy.rentagency.web.dto.UserDTO;
 
@@ -17,6 +20,13 @@ public class UserDTOBuilder {
 		dto.setPictureUrl(user.getPictureUrl());
 		dto.setRegisterDate(user.getRegisterDate());
 		return dto;
-		
+	}
+	
+	public static List<UserDTO> toUsersListDTO(List<User> users){
+		List<UserDTO> usersList = new ArrayList<UserDTO>();
+		for(User user:users){
+			usersList.add(toUserDTO(user));
+		}
+		return usersList;
 	}
 }
