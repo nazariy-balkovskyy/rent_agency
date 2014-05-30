@@ -13,6 +13,7 @@ import com.balkovskyy.rentagency.web.domain.User;
 import com.balkovskyy.rentagency.web.dto.TestDTO;
 import com.balkovskyy.rentagency.web.dto.UserDTO;
 import com.balkovskyy.rentagency.web.dto.builders.UserDTOBuilder;
+import com.balkovskyy.rentagency.web.repositories.CommentRepository;
 import com.balkovskyy.rentagency.web.repositories.UserRepository;
 
 @Controller
@@ -21,6 +22,9 @@ public class TestController {
 	
 	@Autowired
 	private UserRepository repo;
+	
+	@Autowired
+	private CommentRepository commentRepo;
 	
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
@@ -32,6 +36,8 @@ public class TestController {
 	@RequestMapping(value = "/{name}/get", method = RequestMethod.GET)
 	public UserDTO getUserByName(@PathVariable String name){
 		User u = repo.findOne(1L);
+		u.setFirstName("вася");
+		repo.save(u);
 		return UserDTOBuilder.toUserDTO(u);
 	}
 }
