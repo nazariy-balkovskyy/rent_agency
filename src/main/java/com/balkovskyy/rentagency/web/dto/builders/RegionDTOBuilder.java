@@ -10,7 +10,7 @@ public class RegionDTOBuilder {
 	public static RegionDTO toRegionDTO(Region region) {
 		RegionDTO dto = new RegionDTO();
 		dto.setId(region.getId());
-		dto.setCity(CityDTOBuilder.toCityDTO(region.getCity()));
+		//dto.setCity(CityDTOBuilder.toCityDTO(region.getCity()));
 		dto.setName(region.getName());
 		return dto;
 	}

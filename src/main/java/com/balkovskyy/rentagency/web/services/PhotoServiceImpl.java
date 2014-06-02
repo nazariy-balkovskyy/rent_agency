@@ -1,5 +1,7 @@
 package com.balkovskyy.rentagency.web.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +34,15 @@ public class PhotoServiceImpl implements PhotoService {
 	public void deletePhoto(Long id) {
 		Photo photo = findPhotoById(id);
 		photoRepo.delete(photo);
+	}
+
+	@Override
+	public List<Photo> findPhotoesByAdvertisementId(Long id) {
+		return photoRepo.getPhotoByAdvertisementId(id);
+	}
+
+	@Override
+	public Photo getDefaultPhotoByAdvertisementId(Long id) {
+		return photoRepo.getDefaultPhotoByAdvertisementId(id);
 	}
 }

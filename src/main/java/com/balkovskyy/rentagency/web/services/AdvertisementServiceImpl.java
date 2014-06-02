@@ -1,5 +1,7 @@
 package com.balkovskyy.rentagency.web.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +35,31 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 	public void deleteAdvertisement(Long id) {
 		Advertisement adv = advertisementRepo.findOne(id);
 		advertisementRepo.delete(adv);
+	}
+
+	@Override
+	public List<Advertisement> findAllAdvertisements() {
+		return (List<Advertisement>) advertisementRepo.findAll();
+	}
+
+	@Override
+	public List<Advertisement> findAdvertisementsByCity(Long cityId) {
+		return advertisementRepo.getAdvetisementsByCity(cityId);
+	}
+
+	@Override
+	public List<Advertisement> findAdvertisementsByCityRegion(Long regionId) {
+		return advertisementRepo.getAdvetisementsByCityRegion(regionId);
+	}
+
+	@Override
+	public List<Advertisement> findAdvertisementsByRentType(Long rentTypeId) {
+		return advertisementRepo.getAdvetisementsByRentType(rentTypeId);
+	}
+
+	@Override
+	public List<Advertisement> findAdvertisementsByCityRegionWithType(
+			Long regionId, Long typeId) {
+		return advertisementRepo.getAdvetisementsByRegionWithType(regionId, typeId);
 	}
 }

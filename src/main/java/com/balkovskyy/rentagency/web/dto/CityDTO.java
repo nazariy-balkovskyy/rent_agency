@@ -1,5 +1,7 @@
 package com.balkovskyy.rentagency.web.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,6 +16,9 @@ public class CityDTO {
 	
 	@JsonProperty("id_default")
 	private boolean isDefault;
+	
+	@JsonProperty("regions")
+	private List<RegionDTO> regions;
 
 	public Long getId() {
 		return id;
@@ -37,5 +42,13 @@ public class CityDTO {
 
 	public void setDefault(boolean isDefault) {
 		this.isDefault = isDefault;
+	}
+
+	public List<RegionDTO> getRegions() {
+		return regions;
+	}
+
+	public void setRegions(List<RegionDTO> regions) {
+		this.regions = regions;
 	}
 }

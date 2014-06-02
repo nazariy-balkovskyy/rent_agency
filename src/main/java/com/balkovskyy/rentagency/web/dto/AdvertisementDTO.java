@@ -1,7 +1,11 @@
 package com.balkovskyy.rentagency.web.dto;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.balkovskyy.rentagency.web.utils.JsonDateSerializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AdvertisementDTO {
@@ -41,6 +45,13 @@ public class AdvertisementDTO {
 	
 	@JsonProperty("floor_number")
 	private int floorNumber;
+	
+	@JsonProperty("photo")
+	private String photo;
+	
+	@JsonProperty("date")
+	@JsonSerialize(using = JsonDateSerializer.class)
+	private Date date;
 
 	public Long getId() {
 		return id;
@@ -136,5 +147,21 @@ public class AdvertisementDTO {
 
 	public void setFloorNumber(int floorNumber) {
 		this.floorNumber = floorNumber;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
