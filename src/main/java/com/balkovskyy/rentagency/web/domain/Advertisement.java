@@ -2,6 +2,7 @@ package com.balkovskyy.rentagency.web.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,10 +16,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @SuppressWarnings("serial")
 @Entity(name = "Advertisement")
-@Table(name = "Advertisements")
+@Table(name = "RentAdvertisements")
 public class Advertisement implements Serializable, Identifiable<Long>{
 	
 	public Advertisement() {
@@ -68,8 +70,14 @@ public class Advertisement implements Serializable, Identifiable<Long>{
 	@Column(name = "floor_number")
 	private int floorNumber;
 	
+	@Column(name = "date")
+	private Date date;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "advertisement", cascade = CascadeType.ALL)
 	private List<Photo> photoes = new ArrayList<Photo>();
+	
+	@Transient
+	private Photo photo;
 	
 	public Long getId(){
 		return id;
@@ -165,5 +173,21 @@ public class Advertisement implements Serializable, Identifiable<Long>{
 
 	public void setFloorNumber(int floorNumber) {
 		this.floorNumber = floorNumber;
+	}
+
+	public Photo getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

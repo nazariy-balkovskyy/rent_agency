@@ -10,8 +10,8 @@ public class LocationDTOBuilder {
 	public static LocationDTO toLocationDTO(Location location) {
 		LocationDTO dto = new LocationDTO();
 		dto.setId(location.getId());
-//		dto.setCity(location.getCity());
-//		dto.setRegion(location.getRegion());
+		dto.setCity(CityDTOBuilder.toCityDTO(location.getCity()));
+		dto.setRegion(RegionDTOBuilder.toRegionDTO(location.getRegion()));
 		dto.setLongitude(location.getLongitude());
 		dto.setLatitude(location.getLatitude());
 		dto.setFriendlyName(location.getFriendlyName());

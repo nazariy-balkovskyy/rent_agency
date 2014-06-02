@@ -1,5 +1,7 @@
 package com.balkovskyy.rentagency.web.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +34,10 @@ public class CityServiceImpl implements CityService {
 	public void deleteCity(Long id) {
 		City city = cityRepo.findOne(id);
 		cityRepo.delete(city);
+	}
+
+	@Override
+	public List<City> findAllCities() {
+		return (List<City>) cityRepo.findAll();
 	}
 }
